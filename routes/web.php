@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\FixtureController;
+use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\MatchesController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\ProfileController;
@@ -24,6 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('players', PlayerController::class);
     Route::resource('staff', StaffController::class);
     Route::resource('matches', MatchesController::class);
+    Route::resource('fixtures', FixtureController::class);
+    Route::get('/fixtures/calendar', [FixtureController::class, 'calendar'])->name('fixtures.calendar');
+    Route::resource('licenses', LicenseController::class);
+
 });
 
 require __DIR__.'/auth.php';

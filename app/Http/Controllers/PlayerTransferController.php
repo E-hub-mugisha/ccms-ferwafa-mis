@@ -58,7 +58,7 @@ public function reject($id)
 public function downloadPdf()
 {
     $transfers = PlayerTransfer::with(['player', 'fromClub', 'toClub'])->get();
-    $pdf = Pdf::loadView('transfers.pdf', compact('transfers'));
+    $pdf = Pdf::loadView('players.pdf', compact('transfers'));
     return $pdf->download('transfer_reports.pdf');
 }
 }

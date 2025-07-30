@@ -51,6 +51,24 @@
                         staff
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('stadiums.*') ? 'active' : '' }}"
+                        href="{{ route('stadiums.index') }}">
+                        stadiums
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('licenses.*') ? 'active' : '' }}"
+                        href="{{ route('licenses.index') }}">
+                        licenses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('player_transfers.*') ? 'active' : '' }}"
+                        href="{{ route('player_transfers.index') }}">
+                        player_transfers
+                    </a>
+                </li>
             </ul>
 
             <!-- Right User Dropdown -->

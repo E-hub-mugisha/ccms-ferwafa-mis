@@ -5,8 +5,11 @@ use App\Http\Controllers\FixtureController;
 use App\Http\Controllers\LicenseController;
 use App\Http\Controllers\MatchesController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\PlayerTransferController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StadiumController;
 use App\Http\Controllers\StaffController;
+use App\Models\PlayerTransfer;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,6 +33,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/fixtures/calendar', [FixtureController::class, 'calendar'])->name('fixtures.calendar');
     Route::resource('licenses', LicenseController::class);
 
+    Route::resource('/stadiums', StadiumController::class);
+    Route::resource('/player_transfers', PlayerTransferController::class);
+Route::get('/transfers/{id}/approve', [PlayerTransferController::class, 'approve'])->name('transfers.approve');
+Route::get('/transfers/{id}/reject', [PlayerTransferController::class, 'reject'])->name('transfers.reject');
+Route::get('/transfer-report/pdf', [PlayerTransferController::class, 'downloadPdf'])->name('transfers.pdf');
 });
 
 require __DIR__.'/auth.php';

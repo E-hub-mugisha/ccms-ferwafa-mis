@@ -61,8 +61,8 @@
                                 <li class="active"><a href="index.html" class="nav-link">Home</a></li>
                                 <li><a href="matches.html" class="nav-link">Matches</a></li>
                                 <li><a href="players.html" class="nav-link">Players</a></li>
-                                <li><a href="blog.html" class="nav-link">Blog</a></li>
-                                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                                <li><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                                <li><a href="{{ route('login')}}" class="nav-link">Login</a></li>
                             </ul>
                         </nav>
 

@@ -10,7 +10,7 @@
     </button>
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
     <table class="table table-bordered table-striped">
@@ -37,9 +37,9 @@
                 <td>{{ $match->status }}</td>
                 <td>
                     @if($match->status == 'Played')
-                        {{ $match->home_score }} - {{ $match->away_score }}
+                    {{ $match->home_score }} - {{ $match->away_score }}
                     @else
-                        N/A
+                    N/A
                     @endif
                 </td>
                 <td>
@@ -53,7 +53,9 @@
             <div class="modal fade" id="viewMatchModal{{ $match->id }}" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header"><h5 class="modal-title">Match Info</h5></div>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Match Info</h5>
+                        </div>
                         <div class="modal-body">
                             <p><strong>Home:</strong> {{ $match->homeClub->name }}</p>
                             <p><strong>Away:</strong> {{ $match->awayClub->name }}</p>
@@ -62,9 +64,9 @@
                             <p><strong>Status:</strong> {{ $match->status }}</p>
                             <p><strong>Score:</strong>
                                 @if($match->status == 'Played')
-                                    {{ $match->home_score }} - {{ $match->away_score }}
+                                {{ $match->home_score }} - {{ $match->away_score }}
                                 @else
-                                    N/A
+                                N/A
                                 @endif
                             </p>
                         </div>
@@ -72,14 +74,14 @@
                 </div>
             </div>
 
-           
-
             <!-- Delete Modal -->
             <div class="modal fade" id="deleteMatchModal{{ $match->id }}" tabindex="-1">
                 <div class="modal-dialog">
                     <form method="POST" action="{{ route('matches.destroy', $match->id) }}" class="modal-content">
                         @csrf @method('DELETE')
-                        <div class="modal-header"><h5 class="modal-title">Delete Match</h5></div>
+                        <div class="modal-header">
+                            <h5 class="modal-title">Delete Match</h5>
+                        </div>
                         <div class="modal-body">
                             Are you sure you want to delete this match: <br>
                             <strong>{{ $match->homeClub->name }} vs {{ $match->awayClub->name }}</strong>?
@@ -97,69 +99,20 @@
 </div>
 
 @foreach( $matches as $match)
- <!-- Edit Modal -->
-            <div class="modal fade" id="editMatchModal{{ $match->id }}" tabindex="-1">
-                <div class="modal-dialog">
-                    <form method="POST" action="{{ route('matches.update', $match->id) }}" class="modal-content">
-                        @csrf @method('PUT')
-                        <div class="modal-header"><h5 class="modal-title">Edit Match</h5></div>
-                        <div class="modal-body">
-                            <div class="mb-2">
-                                <label>Home Club</label>
-                                <select name="home_club_id" class="form-control" required>
-                                    @foreach($clubs as $club)
-                                        <option value="{{ $club->id }}" @if($match->home_club_id == $club->id) selected @endif>{{ $club->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="mb-2">
-                                <label>Away Club</label>
-                                <select name="away_club_id" class="form-control" required>
-                                    @foreach($clubs as $club)
-                                        <option value="{{ $club->id }}" @if($match->away_club_id == $club->id) selected @endif>{{ $club->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="mb-2"><label>Date</label>
-                                <input type="date" name="match_date" value="{{ $match->match_date }}" class="form-control" required>
-                            </div>
-                            <div class="mb-2"><label>Venue</label>
-                                <input type="text" name="venue" value="{{ $match->venue }}" class="form-control" required>
-                            </div>
-                            <div class="mb-2"><label>Home Score</label>
-                                <input type="number" name="home_score" value="{{ $match->home_score }}" class="form-control">
-                            </div>
-                            <div class="mb-2"><label>Away Score</label>
-                                <input type="number" name="away_score" value="{{ $match->away_score }}" class="form-control">
-                            </div>
-                            <div class="mb-2">
-                                <label>Status</label>
-                                <select name="status" class="form-control">
-                                    <option value="Scheduled" @if($match->status == 'Scheduled') selected @endif>Scheduled</option>
-                                    <option value="Played" @if($match->status == 'Played') selected @endif>Played</option>
-                                    <option value="Cancelled" @if($match->status == 'Cancelled') selected @endif>Cancelled</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary">Update</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            @endforeach
-<!-- Add Modal -->
-<div class="modal fade" id="addMatchModal" tabindex="-1">
+<!-- Edit Modal -->
+<div class="modal fade" id="editMatchModal{{ $match->id }}" tabindex="-1">
     <div class="modal-dialog">
-        <form method="POST" action="{{ route('matches.store') }}" class="modal-content">
-            @csrf
-            <div class="modal-header"><h5 class="modal-title">Add New Match</h5></div>
+        <form method="POST" action="{{ route('matches.update', $match->id) }}" class="modal-content">
+            @csrf @method('PUT')
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Match</h5>
+            </div>
             <div class="modal-body">
                 <div class="mb-2">
                     <label>Home Club</label>
                     <select name="home_club_id" class="form-control" required>
                         @foreach($clubs as $club)
-                            <option value="{{ $club->id }}">{{ $club->name }}</option>
+                        <option value="{{ $club->id }}" @if($match->home_club_id == $club->id) selected @endif>{{ $club->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -167,7 +120,62 @@
                     <label>Away Club</label>
                     <select name="away_club_id" class="form-control" required>
                         @foreach($clubs as $club)
-                            <option value="{{ $club->id }}">{{ $club->name }}</option>
+                        <option value="{{ $club->id }}" @if($match->away_club_id == $club->id) selected @endif>{{ $club->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-2"><label>Date</label>
+                    <input type="date" name="match_date" value="{{ $match->match_date }}" class="form-control" required>
+                </div>
+                <div class="mb-2"><label>Venue</label>
+                    <input type="text" name="venue" value="{{ $match->venue }}" class="form-control" required>
+                </div>
+                <div class="mb-2"><label>Home Score</label>
+                    <input type="number" name="home_score" value="{{ $match->home_score }}" class="form-control">
+                </div>
+                <div class="mb-2"><label>Away Score</label>
+                    <input type="number" name="away_score" value="{{ $match->away_score }}" class="form-control">
+                </div>
+                <div class="mb-2">
+                    <label>Status</label>
+                    <select name="status" class="form-control">
+                        <option value="Scheduled" @if($match->status == 'Scheduled') selected @endif>Scheduled</option>
+                        <option value="Played" @if($match->status == 'Played') selected @endif>Played</option>
+                        <option value="Cancelled" @if($match->status == 'Cancelled') selected @endif>Cancelled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+@endforeach
+<!-- Add Modal -->
+
+<!-- Add Modal -->
+<div class="modal fade" id="addMatchModal" tabindex="-1">
+    <div class="modal-dialog">
+        <form method="POST" action="{{ route('matches.store') }}" class="modal-content">
+            @csrf
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Match</h5>
+            </div>
+            <div class="modal-body">
+                <div class="mb-2">
+                    <label>Home Club</label>
+                    <select name="home_club_id" class="form-control" required>
+                        @foreach($clubs as $club)
+                        <option value="{{ $club->id }}">{{ $club->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label>Away Club</label>
+                    <select name="away_club_id" class="form-control" required>
+                        @foreach($clubs as $club)
+                        <option value="{{ $club->id }}">{{ $club->name }}</option>
                         @endforeach
                     </select>
                 </div>

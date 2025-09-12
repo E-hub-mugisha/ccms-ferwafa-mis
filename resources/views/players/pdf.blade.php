@@ -12,7 +12,7 @@
     <tbody>
         @foreach($transfers as $transfer)
             <tr>
-                <td>{{ $transfer->player->name }}</td>
+                <td>{{ $transfer->player->first_name }} {{ $transfer->player->last_name }}</td>
                 <td>{{ $transfer->fromClub->name }}</td>
                 <td>{{ $transfer->toClub->name }}</td>
                 <td>{{ $transfer->transfer_date }}</td>

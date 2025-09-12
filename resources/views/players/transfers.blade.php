@@ -19,7 +19,7 @@
         <tbody>
             @foreach($transfers as $transfer)
                 <tr>
-                    <td>{{ $transfer->player->name }}</td>
+                    <td>{{ $transfer->player->first_name }} {{ $transfer->player->last_name }}</td>
                     <td>{{ $transfer->fromClub->name }}</td>
                     <td>{{ $transfer->toClub->name }}</td>
                     <td>{{ $transfer->transfer_date }}</td>
@@ -48,7 +48,7 @@
         <select name="player_id" class="form-control mb-2">
             <option value="">Select Player</option>
             @foreach(App\Models\Player::all() as $player)
-                <option value="{{ $player->id }}">{{ $player->name }}</option>
+                <option value="{{ $player->id }}">{{ $player->first_name }} {{ $player->last_name }}</option>
             @endforeach
         </select>
         <select name="from_club_id" class="form-control mb-2">

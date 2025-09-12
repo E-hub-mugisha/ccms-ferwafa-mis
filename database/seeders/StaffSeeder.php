@@ -15,7 +15,7 @@ class StaffSeeder extends Seeder
         $staff = [
             // APR FC Staff
             [
-                'club_id' => 2,
+                'club_id' => 1,
                 'name' => 'Adil Mohamed',
                 'position' => 'Head Coach',
                 'email' => 'adil@aprfc.rw',
@@ -26,7 +26,7 @@ class StaffSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'club_id' => 2,
+                'club_id' => 1,
                 'name' => 'Jean Bizimana',
                 'position' => 'Assistant Coach',
                 'email' => 'jean@aprfc.rw',
@@ -39,7 +39,7 @@ class StaffSeeder extends Seeder
 
             // Rayon Sports FC Staff
             [
-                'club_id' => 3,
+                'club_id' => 2,
                 'name' => 'Yves Rwasamanzi',
                 'position' => 'Head Coach',
                 'email' => 'yves@rayonsports.rw',
@@ -50,7 +50,7 @@ class StaffSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'club_id' => 3,
+                'club_id' => 2,
                 'name' => 'Eric Nshimiyimana',
                 'position' => 'Technical Director',
                 'email' => 'eric@rayonsports.rw',
@@ -63,7 +63,7 @@ class StaffSeeder extends Seeder
 
             // Police FC Staff
             [
-                'club_id' => 4,
+                'club_id' => 3,
                 'name' => 'Patrick Ruhumuriza',
                 'position' => 'Head Coach',
                 'email' => 'patrick@policefc.rw',
@@ -74,7 +74,7 @@ class StaffSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'club_id' => 4,
+                'club_id' => 3,
                 'name' => 'Moses Rutikanga',
                 'position' => 'Goalkeeping Coach',
                 'email' => 'moses@policefc.rw',
@@ -87,7 +87,7 @@ class StaffSeeder extends Seeder
 
             // AS Kigali Staff
             [
-                'club_id' => 5,
+                'club_id' => 4,
                 'name' => 'Jimmy Mulisa',
                 'position' => 'Head Coach',
                 'email' => 'jimmy@askigali.rw',
@@ -98,7 +98,7 @@ class StaffSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'club_id' => 5,
+                'club_id' => 4,
                 'name' => 'Claudine Uwase',
                 'position' => 'Physiotherapist',
                 'email' => 'claudine@askigali.rw',
@@ -111,7 +111,7 @@ class StaffSeeder extends Seeder
 
             // Etincelles FC Staff
             [
-                'club_id' => 6,
+                'club_id' => 5,
                 'name' => 'Jean Claude Niyonzima',
                 'position' => 'Head Coach',
                 'email' => 'jc@etincellesfc.rw',
@@ -122,7 +122,7 @@ class StaffSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'club_id' => 6,
+                'club_id' => 5,
                 'name' => 'Sonia Mukamana',
                 'position' => 'Team Doctor',
                 'email' => 'sonia@etincellesfc.rw',

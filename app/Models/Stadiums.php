@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Stadiums extends Model
 {
     //
+    protected $fillable = [
+        'name','location', 'capacity'
+    ];
 }

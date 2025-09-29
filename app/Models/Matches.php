@@ -8,8 +8,16 @@ class Matches extends Model
 {
     //
     protected $fillable = [
-        'match_date', 'home_club_id', 'away_club_id', 'venue'
+        'match_date',
+        'home_club_id',
+        'away_club_id',
+        'venue'
     ];
+
+    protected $casts = [
+        'match_date' => 'datetime',
+    ];
+
 
     public function homeClub()
     {

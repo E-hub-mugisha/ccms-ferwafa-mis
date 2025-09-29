@@ -1,4 +1,5 @@
 @extends('layouts.user')
+@section('title', 'Home')
 @section('content')
 
 <div class="hero overlay" style="background-image: url('images/bg_3.jpg');">

@@ -23,7 +23,7 @@
                         <li><a href="{{ route('user.matches') }}" class="nav-link">Matches</a></li>
                         <li><a href="{{ route('user.players') }}" class="nav-link">Players</a></li>
                         <li><a href="{{ route('user.clubs') }}" class="nav-link">Clubs</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li><a href="{{ route('user.contact') }}" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>
 

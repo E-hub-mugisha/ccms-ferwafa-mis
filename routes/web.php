@@ -18,7 +18,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/get/matches', [HomeController::class, 'matches'])->name('user.matches');
 Route::get('/get/players', [HomeController::class, 'players'])->name('user.players');
 Route::get('/get/clubs', [HomeController::class, 'clubsPage'])->name('user.clubs');
-
+Route::get('/get/contact', [HomeController::class, 'contactPage'])->name('user.contact');
 
 Route::get('/dashboard', [AdminDashboardController::class, 'index'])
     ->middleware(['auth'])

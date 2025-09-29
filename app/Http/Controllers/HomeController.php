@@ -54,4 +54,9 @@ class HomeController extends Controller
         $clubs = Club::withCount('players')->latest()->paginate(12);
         return view('clubs', compact('clubs'));
     }
+
+    public function contactPage()
+    {
+        return view('contact');
+    }
 }

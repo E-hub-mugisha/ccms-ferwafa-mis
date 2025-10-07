@@ -44,6 +44,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/transfers/{id}/approve', [PlayerTransferController::class, 'approve'])->name('transfers.approve');
     Route::get('/transfers/{id}/reject', [PlayerTransferController::class, 'reject'])->name('transfers.reject');
     Route::get('/transfer-report/pdf', [PlayerTransferController::class, 'downloadPdf'])->name('transfers.pdf');
+
+    Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+    Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+    Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
+    Route::get('/users/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show');
+    Route::get('/users/{id}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy');
+
+    Route::get('/notifications', [App\Http\Controllers\NotificationController::class, 'index']);
+    Route::post('/notifications/mark-all', [App\Http\Controllers\NotificationController::class, 'markAllAsRead'])->name('notifications.markAll');
 });
 
 require __DIR__ . '/auth.php';

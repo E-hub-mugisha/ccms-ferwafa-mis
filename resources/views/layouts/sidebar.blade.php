@@ -19,7 +19,12 @@
                     <li class="nk-menu-item {{ request()->routeIs('dashboard') ? 'active' : '' }}"><a href="{{ route('dashboard') }}" class="nk-menu-link"><span
                                 class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span><span
                                 class="nk-menu-text">Dashboard</span></a></li>
-
+                    <li class="nk-menu-heading">
+                        <h6 class="overline-title text-primary-alt">Management</h6>
+                    </li>
+                    <li class="nk-menu-item {{ request()->routeIs('users.*') ? 'active' : '' }}"><a href="{{ route('users.index') }}" class="nk-menu-link"><span
+                                class="nk-menu-icon"><em class="icon ni ni-users"></em></span><span
+                                class="nk-menu-text">Users</span></a></li>
 
                     <li class="nk-menu-item {{ request()->routeIs('fixtures.*') ? 'active' : '' }}"><a href="{{ route('fixtures.index') }}" class="nk-menu-link"><span
                                 class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span><span

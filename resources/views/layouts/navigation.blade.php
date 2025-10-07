@@ -54,6 +54,57 @@
                             </div>
                         </div>
                     </li>
+                    <li class="dropdown notification-dropdown me-n1">
+                        <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
+                            <div class="icon-status icon-status-info">
+                                <em class="icon ni ni-bell"></em>
+                            </div>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end dropdown-menu-s1">
+                            <div class="dropdown-head">
+                                <span class="sub-title nk-dropdown-title">Notifications</span>
+                                <form action="{{ route('notifications.markAll') }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link p-0 text-primary">Mark All as Read</button>
+                                </form>
+                            </div>
+
+                            <div class="dropdown-body">
+                                <div class="nk-notification">
+                                    @forelse($notifications as $notif)
+                                    @php
+                                    $color = match($notif->type) {
+                                    'success' => 'bg-success-dim',
+                                    'warning' => 'bg-warning-dim',
+                                    'danger' => 'bg-danger-dim',
+                                    default => 'bg-info-dim'
+                                    };
+                                    @endphp
+                                    <div class="nk-notification-item dropdown-inner {{ $notif->is_read ? 'opacity-75' : '' }}">
+                                        <div class="nk-notification-icon">
+                                            <em class="icon icon-circle {{ $color }} ni ni-bell"></em>
+                                        </div>
+                                        <div class="nk-notification-content">
+                                            <div class="nk-notification-text">
+                                                <strong>{{ $notif->title }}</strong> — {{ $notif->message }}
+                                            </div>
+                                            <div class="nk-notification-time">
+                                                {{ $notif->created_at->diffForHumans() }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @empty
+                                    <p class="text-center text-muted my-3">No notifications</p>
+                                    @endforelse
+                                </div>
+                            </div>
+
+                            <div class="dropdown-foot center"><a href="#">View All</a></div>
+                        </div>
+                    </li>
+
+
                 </ul>
             </div>
         </div>

@@ -73,31 +73,31 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Delete Modal -->
-            <div class="modal fade" id="deleteMatchModal{{ $match->id }}" tabindex="-1">
-                <div class="modal-dialog">
-                    <form method="POST" action="{{ route('matches.destroy', $match->id) }}" class="modal-content">
-                        @csrf @method('DELETE')
-                        <div class="modal-header">
-                            <h5 class="modal-title">Delete Match</h5>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to delete this match: <br>
-                            <strong>{{ $match->homeClub->name }} vs {{ $match->awayClub->name }}</strong>?
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-danger">Yes, Delete</button>
-                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
             @endforeach
         </tbody>
     </table>
 </div>
-
+@foreach( $matches as $match)
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteMatchModal{{ $match->id }}" tabindex="-1">
+    <div class="modal-dialog">
+        <form method="POST" action="{{ route('matches.destroy', $match->id) }}" class="modal-content">
+            @csrf @method('DELETE')
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Match</h5>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this match: <br>
+                <strong>{{ $match->homeClub->name }} vs {{ $match->awayClub->name }}</strong>?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger">Yes, Delete</button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+@endforeach
 @foreach( $matches as $match)
 <!-- Edit Modal -->
 <div class="modal fade" id="editMatchModal{{ $match->id }}" tabindex="-1">

@@ -33,76 +33,80 @@
                                 <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteStadiumModal{{ $stadium->id }}">Delete</button>
                             </td>
                         </tr>
-
-                        <!-- Show Modal -->
-                        <div class="modal fade" id="showStadiumModal{{ $stadium->id }}" tabindex="-1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Stadium Details</h5>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p><strong>Name:</strong> {{ $stadium->name }}</p>
-                                        <p><strong>Location:</strong> {{ $stadium->location }}</p>
-                                        <p><strong>Capacity:</strong> {{ $stadium->capacity }}</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Edit Modal -->
-                        <div class="modal fade" id="editStadiumModal{{ $stadium->id }}" tabindex="-1">
-                            <div class="modal-dialog">
-                                <form method="POST" action="{{ route('stadiums.update', $stadium) }}">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Edit Stadium</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            <input type="text" name="name" class="form-control mb-2" value="{{ $stadium->name }}" required>
-                                            <input type="text" name="location" class="form-control mb-2" value="{{ $stadium->location }}" required>
-                                            <input type="number" name="capacity" class="form-control" value="{{ $stadium->capacity }}" required>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success">Update</button>
-                                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Delete Modal -->
-                        <div class="modal fade" id="deleteStadiumModal{{ $stadium->id }}" tabindex="-1">
-                            <div class="modal-dialog">
-                                <form method="POST" action="{{ route('stadiums.destroy', $stadium) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Confirm Delete</h5>
-                                        </div>
-                                        <div class="modal-body">Are you sure you want to delete <strong>{{ $stadium->name }}</strong>?</div>
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    @foreach($stadiums as $stadium)
+    <!-- Show Modal -->
+    <div class="modal fade" id="showStadiumModal{{ $stadium->id }}" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Stadium Details</h5>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Name:</strong> {{ $stadium->name }}</p>
+                    <p><strong>Location:</strong> {{ $stadium->location }}</p>
+                    <p><strong>Capacity:</strong> {{ $stadium->capacity }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($stadiums as $stadium)
+    <!-- Edit Modal -->
+    <div class="modal fade" id="editStadiumModal{{ $stadium->id }}" tabindex="-1">
+        <div class="modal-dialog">
+            <form method="POST" action="{{ route('stadiums.update', $stadium) }}">
+                @csrf
+                @method('PUT')
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Stadium</h5>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" name="name" class="form-control mb-2" value="{{ $stadium->name }}" required>
+                        <input type="text" name="location" class="form-control mb-2" value="{{ $stadium->location }}" required>
+                        <input type="number" name="capacity" class="form-control" value="{{ $stadium->capacity }}" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Update</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    @endforeach
+    @foreach($stadiums as $stadium)
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleteStadiumModal{{ $stadium->id }}" tabindex="-1">
+        <div class="modal-dialog">
+            <form method="POST" action="{{ route('stadiums.destroy', $stadium) }}">
+                @csrf
+                @method('DELETE')
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm Delete</h5>
+                    </div>
+                    <div class="modal-body">Are you sure you want to delete <strong>{{ $stadium->name }}</strong>?</div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    @endforeach
     <!-- Add Modal -->
     <div class="modal fade" id="addStadiumModal" tabindex="-1">
         <div class="modal-dialog">

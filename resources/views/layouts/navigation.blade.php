@@ -103,8 +103,6 @@
                             <div class="dropdown-foot center"><a href="#">View All</a></div>
                         </div>
                     </li>
-
-
                 </ul>
             </div>
         </div>

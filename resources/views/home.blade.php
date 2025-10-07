@@ -9,8 +9,12 @@
                 <h3 class="text-white">{{ config('app.name')}}</h3>
                 <p>The Club Central Management System (CCMS) is a digital platform developed to transform how football clubs under the Rwanda Football Federation (FERWAFA) manage their operations</p>
                 <p>
+                    @if( Auth::check() )
+                    <a href="{{ route('dashboard') }}" class="btn btn-primary py-3 px-4 mr-3">Dashboard</a>
+                    @else
                     <a href="{{ route('login') }}" class="btn btn-primary py-3 px-4 mr-3">Login</a>
                     <a href="{{ route('register') }}" class="more light">Register</a>
+                    @endif
                 </p>
             </div>
         </div>

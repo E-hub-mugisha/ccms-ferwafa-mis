@@ -8,12 +8,7 @@
 
     <title>{{ config('app.name', 'CCMS Ferwafa') }}</title>
 
-    <!-- Bootstrap 5 CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
-
+   
     <!-- Optional: Custom CSS -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
@@ -40,12 +35,7 @@
             </div>
         </div>
     </div>
-    <!-- Bootstrap 5 JS Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- FullCalendar JS -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
-
+    
     <!-- Optional: Your JS -->
     <script src="{{ asset('js/custom.js') }}"></script>
 
